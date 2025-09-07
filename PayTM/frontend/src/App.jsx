@@ -4,6 +4,7 @@ import Signin from "./pages/Signin"
 import Dashboard from "./pages/Dashboard"
 import Send from "./pages/Send"
 import Home from "./pages/Home"
+import { About } from "./pages/About"
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/signin" element={<Signin />}/> 
       <Route path="/dashboard" element={<Dashboard />}/>
       <Route path="/send" element={<Send />}/>
+      <Route path="/about" element={<About />} />
     </Routes>
     </BrowserRouter>
   )

@@ -43,11 +43,17 @@ export default function PakPayHomepage() {
               Your trusted digital payment solution. Fast, secure, and reliable payments at your fingertips.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 text-lg bg-green-600 hover:bg-green-700 text-white rounded-md transition-colors font-medium">
+              <button className="px-6 py-3 text-lg bg-green-600 hover:bg-green-700 text-white rounded-md transition-colors font-medium cursor-pointer">
+                  <Link to={'/signin'}>
+                
                 Get Started
+                </Link>
               </button>
-              <button className="px-6 py-3 text-lg border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white bg-transparent rounded-md transition-colors font-medium">
+              <button className="cursor-pointer px-6 py-3 text-lg border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white bg-transparent rounded-md transition-colors font-medium">
+                <Link to={'/about'}>
+                
                 Learn More
+                </Link>
               </button>
             </div>
           </div>
