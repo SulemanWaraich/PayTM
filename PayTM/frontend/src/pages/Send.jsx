@@ -28,7 +28,7 @@ function Send() {
         console.log(amount);
         
         try {
-          const res = await axios.post("http://localhost:3000/api/v1/account/transfer", {
+          const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/account/transfer`, {
           to: id,
           amount
         }, {headers: {

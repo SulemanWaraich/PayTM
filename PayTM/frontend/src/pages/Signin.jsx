@@ -7,6 +7,7 @@ import BottomWarning from '../components/BottomWarning';
 import { useState } from 'react';
 import axios from 'axios';
 import { data } from 'react-router-dom';
+import { ssrImportMetaKey } from 'vite/runtime';
 
 function Signin() {
   const [email, setEmail] = useState('');
@@ -21,7 +22,7 @@ function Signin() {
           <InputBox name={'Email'} place={'jhondoe@example.com'} onChange={(e) => { setEmail(e.target.value) }} />
           <InputBox name={'Password'} place={'******'} onChange={(e) => { setPassword(e.target.value) }} />
           <Button btnName={'Sign In'} onClick={async () => {
-            const res = await axios.post("http://localhost:3000/api/v1/user/signin", {
+            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/signin`, {
               email,
               password
             })

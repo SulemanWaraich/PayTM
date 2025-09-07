@@ -13,7 +13,7 @@ function Dashboard() {
   const [filter, setFilter] = useState('');
 
   useEffect( () => {
-    axios.get("http://localhost:3000/api/v1/user/bulk?name=" + filter)
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/user/bulk?name=` + filter)
     .then(res => {
       setUsers(res.data.user)
     });    
