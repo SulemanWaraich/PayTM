@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
 
-mongoose.connect("mongodb://localhost:27017");
+dotenv.config();
+const MONGO_URI = process.env.DATABASE_URL;
+mongoose.connect(MONGO_URI)
+.then(() => {console.log("MONGODB CONNECTED!");
+})
+.catch((err) => {console.log("CONNECTION FAILED", err);
+})
 
 const userSchema = new mongoose.Schema({
   firstName: {
