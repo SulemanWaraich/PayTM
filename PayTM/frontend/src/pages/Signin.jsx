@@ -61,11 +61,21 @@ function Signin() {
           <InputBox name={'Email'} place={'jhondoe@example.com'} onChange={(e) => { setEmail(e.target.value) }} />
           <InputBox name={'Password'} place={'******'} onChange={(e) => { setPassword(e.target.value) }} />
           <Button btnName={'Sign In'} onClick={async () => {
-            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/signin`, {
-              email,
-              password
-            })
-            console.log(res.data);      
+           try {
+             const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/signin`, {
+               email,
+               password
+             })
+             console.log(res.data);      
+              alert("Signup successful! 🎉 Redirecting to dashboard...");
+  
+              // Redirect to dashboard
+              window.location.href = "/dashboard";
+           } catch (error) {
+              alert("user doesn't exist! signup first.");   
+              window.location.href = "/signup";
+         
+           }
           }} />
           <BottomWarning label={"Don't have an account?"} buttonText={'Sign up'} to={'/signup'} />
         </div>

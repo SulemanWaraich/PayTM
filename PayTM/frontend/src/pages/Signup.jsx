@@ -63,15 +63,24 @@ function Signup() {
         <Button onClick={async () => 
           { 
             console.log(firstName, lastName, email, password);
-            const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/signup`, {
-              firstName,
-              lastName,
-              email,
-              password
-            })
-            console.log(res.data);
-            
-            localStorage.setItem('token', res.data.jwtToken);
+           try {
+             const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/signup`, {
+               firstName,
+               lastName,
+               email,
+               password
+             })
+             console.log(res.data);
+             
+             localStorage.setItem('token', res.data.jwtToken);
+ 
+              alert("Signup successful! 🎉 Redirecting to dashboard...");
+ 
+             // Redirect to dashboard
+             window.location.href = "/dashboard";
+           } catch (error) {
+               alert("Signup failed. Please try again.");
+           }
 
           }} btnName={'Sign Up'}/>
         <BottomWarning label={"Already have an account?"} buttonText={"Login"} to={'/signin'}/>
